@@ -1,6 +1,8 @@
 package com.example.mip
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +16,13 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         val txtUsuario: TextView = findViewById(R.id.id_usuario_logeado)
-        val recibirUsernameS = intent.getStringExtra("par_userr")
+        val recibirUsernameS = intent.getStringExtra("par_usern")
+        val btnirCal: Button = findViewById(R.id.btn_calculadora)
+
+        btnirCal.setOnClickListener {
+            val nuevaVentana = Intent(this, MainActivity3::class.java)
+                startActivity(nuevaVentana)
+        }
 
         txtUsuario.text = recibirUsernameS.toString()
 
