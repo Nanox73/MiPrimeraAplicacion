@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -37,7 +38,36 @@ class MainActivity4 : AppCompatActivity() {
         sPinner.adapter = adaptador
 
 
+        val opcionesListView = arrayOf(
+            "ps1"
+            , "ps2"
+            , "ps3"
+            , "ps4"
+            , "pa5"
+            , "ps6"
+            , "ps7"
+            ,"ps8"
+            , "ps9"
+            , "ps10"
+            , "ps11"
+            , "ps12"
+            , "ps13"
+            , "ps14"
+            , "ps14"
+            , "ps15"
+            , "ps16"
+            , "ps17"
+        )
 
+        val adaptador2 = ArrayAdapter(this, android.R.layout.simple_list_item_1, opcionesListView)
+
+        listVw.adapter = adaptador2
+
+        boton.setOnClickListener {
+            var str_opselected = sPinner.selectedItem.toString()
+            val toast = Toast.makeText(this, str_opselected, Toast.LENGTH_SHORT)
+            toast.show()
+        }
 
 
 
