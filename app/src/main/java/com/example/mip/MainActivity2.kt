@@ -18,11 +18,19 @@ class MainActivity2 : AppCompatActivity() {
         val txtUsuario: TextView = findViewById(R.id.id_usuario_logeado)
         val recibirUsernameS = intent.getStringExtra("par_usern")
         val btnirCal: Button = findViewById(R.id.btn_calculadora)
+        val btnIrMenu: Button = findViewById(R.id.btn_menu)
 
         btnirCal.setOnClickListener {
             val nuevaVentana = Intent(this, MainActivity3::class.java)
                 startActivity(nuevaVentana)
         }
+
+        btnIrMenu.setOnClickListener{
+            val nuevaVentana = Intent(this, MainActivity4::class.java)
+                startActivity(nuevaVentana)
+        }
+
+
 
         txtUsuario.text = recibirUsernameS.toString()
 
