@@ -19,6 +19,7 @@ class MainActivity2 : AppCompatActivity() {
         val recibirUsernameS = intent.getStringExtra("par_usern")
         val btnirCal: Button = findViewById(R.id.btn_calculadora)
         val btnIrMenu: Button = findViewById(R.id.btn_menu)
+        val btnIrSpinner: Button = findViewById(R.id.btn_Spinner)
 
         btnirCal.setOnClickListener {
             val nuevaVentana = Intent(this, MainActivity3::class.java)
@@ -27,6 +28,11 @@ class MainActivity2 : AppCompatActivity() {
 
         btnIrMenu.setOnClickListener{
             val nuevaVentana = Intent(this, MainActivity4::class.java)
+                startActivity(nuevaVentana)
+        }
+
+        btnIrSpinner.setOnClickListener {
+            val nuevaVentana = Intent(this, MainActivity5::class.java)
                 startActivity(nuevaVentana)
         }
 
