@@ -32,7 +32,12 @@ class MainActivity6 : AppCompatActivity() {
         listvIew.setOnItemClickListener { parent, view, position, id ->
             val itemElegido = parent.getItemAtPosition(position).toString()
             if(itemElegido == "IR A CALCULADORA"){
-                val nuevaVentan = Intent
+                val nuevaVentan = Intent(this, MainActivity3::class.java)
+                         startActivity(nuevaVentan)
+            }
+            if(itemElegido == "Spinner rest api"){
+                val nuevaVentana2 = Intent(this,MainActivity7::class.java )
+                         startActivity(nuevaVentana2)
             }
             Toast.makeText(this, itemElegido, Toast.LENGTH_SHORT).show()
         }

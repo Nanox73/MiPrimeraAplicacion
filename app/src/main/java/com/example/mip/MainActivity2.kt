@@ -20,6 +20,7 @@ class MainActivity2 : AppCompatActivity() {
         val btnirCal: Button = findViewById(R.id.btn_calculadora)
         val btnIrMenu: Button = findViewById(R.id.btn_menu)
         val btnIrSpinner: Button = findViewById(R.id.btn_Spinner)
+        val btnAct6: Button = findViewById(R.id.btn_act6)
 
         btnirCal.setOnClickListener {
             val nuevaVentana = Intent(this, MainActivity3::class.java)
@@ -33,6 +34,11 @@ class MainActivity2 : AppCompatActivity() {
 
         btnIrSpinner.setOnClickListener {
             val nuevaVentana = Intent(this, MainActivity5::class.java)
+                startActivity(nuevaVentana)
+        }
+
+        btnAct6.setOnClickListener{
+            val nuevaVentana = Intent(this, MainActivity6::class.java)
                 startActivity(nuevaVentana)
         }
 
