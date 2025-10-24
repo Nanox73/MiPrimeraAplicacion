@@ -21,6 +21,7 @@ class MainActivity2 : AppCompatActivity() {
         val btnIrMenu: Button = findViewById(R.id.btn_menu)
         val btnIrSpinner: Button = findViewById(R.id.btn_Spinner)
         val btnAct6: Button = findViewById(R.id.btn_act6)
+        val btnCamara: Button = findViewById(R.id.btn_camara)
 
         btnirCal.setOnClickListener {
             val nuevaVentana = Intent(this, MainActivity3::class.java)
@@ -41,6 +42,12 @@ class MainActivity2 : AppCompatActivity() {
             val nuevaVentana = Intent(this, MainActivity6::class.java)
                 startActivity(nuevaVentana)
         }
+
+        btnCamara.setOnClickListener{
+            val nuevaVentana = Intent(this, MainActivity9::class.java)
+            startActivity(nuevaVentana)
+        }
+
 
 
 
