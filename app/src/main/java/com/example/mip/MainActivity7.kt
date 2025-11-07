@@ -24,6 +24,7 @@ class MainActivity7 : AppCompatActivity() {
         val spUno: Spinner = findViewById(R.id.sp_uno)
         val spDos: Spinner = findViewById(R.id.sp_dos)
         val btnEnviar: Button = findViewById(R.id.btn_enviar)
+        val bntSql: Button = findViewById(R.id.guardar_sql)
 
 
         val opcionesSpinnerUno = arrayOf(

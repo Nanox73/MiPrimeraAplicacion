@@ -1,5 +1,6 @@
 package com.example.mip
 
+import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -18,22 +19,25 @@ import com.example.mip.Pcamara.CamaraUtils
 
 class MainActivity9 : AppCompatActivity() {
     private var cameraManager: CameraManager? = null
-    private lateinit var btnTomFot: Button
-    private lateinit var imagenFoto: ImageView
     private lateinit var previewView: PreviewView
+    private lateinit var contenedorFoto: ImageView
+    private lateinit var btnTomarFoto: Button
+    private fun setupCamera() {
+        cameraManager = CameraManager(this)
+        cameraManager?.startCamera(previewView)
+        btnTomarFoto.isEnabled = true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main9)
 
+        btnTomarFoto = findViewById(R.id.btn_tomar_foto)
+        contenedorFoto = findViewById(R.id.imgv_foto)
+        previewView = findViewById(R.id.previewView)
 
-        val btnTomFot: Button = findViewById(R.id.btn_tom_foto)
-        val imagenFoto: ImageView = findViewById(R.id.image_foto)
-        val previewView: PreviewView  = findViewById(R.id.previewView)
-
-
-        btnTomFot.isEnabled = false
+        btnTomarFoto.isEnabled = false
 
         // Permiso
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -47,11 +51,10 @@ class MainActivity9 : AppCompatActivity() {
                 101
             )
         }
-
-        btnTomFot.setOnClickListener {
+        btnTomarFoto.setOnClickListener {
             cameraManager?.takePhoto { bitmap ->
                 if (bitmap != null) {
-                    imagenFoto.setImageBitmap(bitmap)
+                    contenedorFoto.setImageBitmap(bitmap)
                     val base64 = CamaraUtils.convertirDeBitMapABase64(bitmap)
                     Log.d("BASE64", base64.take(100) + "...")
                     Toast.makeText(this, "Foto capturada", Toast.LENGTH_SHORT).show()
@@ -62,7 +65,26 @@ class MainActivity9 : AppCompatActivity() {
                 }
             } ?: Toast.makeText(this, "Cámara no lista", Toast.LENGTH_SHORT).show()
         }
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        // Se llama cuando se concede el permiso
+        fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
+        ) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+            if (requestCode == 101 && grantResults.isNotEmpty() &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED
+            ) {
+                setupCamera()
+            } else {
+                Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
 
@@ -75,4 +97,6 @@ class MainActivity9 : AppCompatActivity() {
             insets
         }
     }
+
+
 }

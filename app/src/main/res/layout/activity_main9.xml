@@ -7,29 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity9">
 
-    <Button
-        android:id="@+id/btn_tom_foto"
+    <ImageView
+        android:id="@+id/imgv_foto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tomar foto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <ImageView
-        android:id="@+id/image_foto"
-        android:layout_width="374dp"
-        android:layout_height="209dp"
+    <Button
+        android:id="@+id/btn_tomar_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.99" />
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
@@ -44,6 +44,7 @@
         app:layout_constraintVertical_bias="0.403">
 
     </androidx.camera.view.PreviewView>
+
 
 
 
