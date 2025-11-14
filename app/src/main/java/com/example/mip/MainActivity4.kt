@@ -1,5 +1,6 @@
 package com.example.mip
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -22,6 +23,7 @@ class MainActivity4 : AppCompatActivity() {
         val sPinner: Spinner = findViewById(R.id.sp_operaciones)
         val listVw: ListView = findViewById(R.id.list_vw)
         val txMensaje: TextView = findViewById(R.id.tx_mensaje4)
+        val botonVolver: Button = findViewById(R.id.btn_volver)
 
 
         val opcionesSpinner = arrayOf(
@@ -67,6 +69,11 @@ class MainActivity4 : AppCompatActivity() {
             var str_opselected = sPinner.selectedItem.toString()
             val toast = Toast.makeText(this, str_opselected, Toast.LENGTH_SHORT)
             toast.show()
+        }
+
+        botonVolver.setOnClickListener{
+            val nuevaVentana = Intent(this, MainActivity2::class.java)
+            startActivity(nuevaVentana)
         }
 
 
